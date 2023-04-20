@@ -1,0 +1,5 @@
+https://www.codecademy.com/journeys/full-stack-engineer/paths/fscj-22-back-end-development/tracks/fscj-22-portfolio-project-e-commerce-app-rest-api/modules/fscp-22-e-commerce-app-rest-api-1776f9cc-430a-48a4-872f-96a415b6366d/kanban_projects/ecommerce-app-rest-api
+
+https://expressjs.com/en/starter/hello-world.html
+
+https://www.npmjs.com/package/dotenv
