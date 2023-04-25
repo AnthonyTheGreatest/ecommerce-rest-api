@@ -3,3 +3,7 @@ https://www.codecademy.com/journeys/full-stack-engineer/paths/fscj-22-back-end-d
 https://expressjs.com/en/starter/hello-world.html
 
 https://www.npmjs.com/package/dotenv
+
+ERD:
+https://lucid.app/lucidchart/8d80cf5f-df43-4cfe-ae05-d3a8a4556f56/edit?viewport_loc=-124%2C220%2C3196%2C898%2C0_0&invitationId=inv_90f4be76-a529-4cb1-9e01-8d53d3c991e5
+
