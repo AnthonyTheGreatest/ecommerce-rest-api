@@ -1,0 +1,45 @@
+(Database: E-commerce)
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    password VARCHAR(100),
+    userName VARCHAR(100),
+    email VARCHAR(100)
+);
+
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    total INT,
+    status VARCHAR(100),
+    userID INT,
+    FOREIGN KEY (userID) REFERENCES users(id)
+);
+
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    price INT,
+    description VARCHAR(100)
+);
+
+CREATE TABLE carts (
+    id SERIAL PRIMARY KEY
+);
+
+CREATE TABLE orderItems (
+    id SERIAL PRIMARY KEY,
+    quantity INT,
+    price INT,
+    orderID INT,
+    productID INT,
+    FOREIGN KEY (orderID) REFERENCES orders(id),
+    FOREIGN KEY (productID) REFERENCES products(id)
+);
+
+CREATE TABLE cartItems (
+    id SERIAL PRIMARY KEY,
+    productID INT,
+    cartID INT,
+    FOREIGN KEY (productID) REFERENCES products(id),
+    FOREIGN KEY (cartID) REFERENCES carts(id)
+);

@@ -1,20 +1,43 @@
 const express = require('express');
-const bodyparser = require('body-parser');
-const db = require('./queries');
-const app = express();
-const port = 3000;
+const session = require('express-session');
+const cors = require('cors');
+require('dotenv').config();
+const {
+  authRouter,
+  cartRouter,
+  orderRouter,
+  productRouter,
+  userRouter
+} = require('./routes/index');
 
-app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({
-    extended: true
-}));
+const app = express();
+const port = process.env.PORT || 3001;
+
+// app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(
+    session({  
+      secret: process.env.SESSION_SECRET,
+      resave: false,
+      saveUninitialized: false,
+      cookie: {
+        secure: false,
+        maxAge: 24 * 60 * 60 * 1000
+      }
+    })
+  );
 
 app.get('/', (req, res) => {
-    res.send('Hello');
+    res.send('Welcome to the home page.');
 });
 
-app.get('/items', db.getItems);
+app.use('/auth', authRouter);
+app.use('/carts', cartRouter);
+app.use('/orders', orderRouter);
+app.use('/produsts', productRouter);
+app.use('/users', userRouter);
 
 app.listen(port, () => {
-    console.log(`App running at http://localhost:${port}/`);
+    console.log(`(Ctrl + click) http://localhost:${port}`);
 });

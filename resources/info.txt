@@ -1,3 +1,5 @@
+db => dataAccess => services => controllers => routes => index.js
+
 https://www.codecademy.com/journeys/full-stack-engineer/paths/fscj-22-back-end-development/tracks/fscj-22-portfolio-project-e-commerce-app-rest-api/modules/fscp-22-e-commerce-app-rest-api-1776f9cc-430a-48a4-872f-96a415b6366d/kanban_projects/ecommerce-app-rest-api
 
 https://expressjs.com/en/starter/hello-world.html
@@ -6,4 +8,8 @@ https://www.npmjs.com/package/dotenv
 
 ERD:
 https://lucid.app/lucidchart/8d80cf5f-df43-4cfe-ae05-d3a8a4556f56/edit?viewport_loc=-124%2C220%2C3196%2C898%2C0_0&invitationId=inv_90f4be76-a529-4cb1-9e01-8d53d3c991e5
+
+https://www.youtube.com/watch?v=DihOP19LQdg&t=378s
+https://www.coreycleary.me/project-structure-for-an-express-rest-api-when-there-is-no-standard-way?fbclid=IwAR0fJAIpJun5Ty4o5ijl21Owf0zUBtWT_t04VqFV40c7W6bMQD1VkqOAKP0
+
 
