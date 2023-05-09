@@ -3,7 +3,7 @@
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     password VARCHAR(100),
-    userName VARCHAR(100),
+    user_name VARCHAR(100),
     email VARCHAR(100)
 );
 
@@ -11,8 +11,8 @@ CREATE TABLE orders (
     id SERIAL PRIMARY KEY,
     total INT,
     status VARCHAR(100),
-    userID INT,
-    FOREIGN KEY (userID) REFERENCES users(id)
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 CREATE TABLE products (
@@ -26,20 +26,26 @@ CREATE TABLE carts (
     id SERIAL PRIMARY KEY
 );
 
-CREATE TABLE orderItems (
+CREATE TABLE order_items (
     id SERIAL PRIMARY KEY,
     quantity INT,
     price INT,
-    orderID INT,
-    productID INT,
-    FOREIGN KEY (orderID) REFERENCES orders(id),
-    FOREIGN KEY (productID) REFERENCES products(id)
+    order_id INT,
+    product_id INT,
+    FOREIGN KEY (order_id) REFERENCES orders(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
 );
 
-CREATE TABLE cartItems (
+CREATE TABLE cart_items (
     id SERIAL PRIMARY KEY,
-    productID INT,
-    cartID INT,
-    FOREIGN KEY (productID) REFERENCES products(id),
-    FOREIGN KEY (cartID) REFERENCES carts(id)
+    product_id INT,
+    cart_id INT,
+    FOREIGN KEY (product_id) REFERENCES products(id),
+    FOREIGN KEY (cart_id) REFERENCES carts(id)
 );
+
+----------------------------------------------------------------
+
+INSERT INTO users (password, user_name, email)
+VALUES ('test', 'testName', 'test@gmail.com'),
+	   ('test2', 'testName2', 'test2@gmail.com');
