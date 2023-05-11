@@ -1,6 +1,7 @@
 const getStudents = 'SELECT * FROM students2';
 const getStudentById = 'SELECT * FROM students2 WHERE id = $1';
-const checkEmailExists = 'SELECT s FROM students2 WHERE s.email = $1';
+const checkEmailExists = 'SELECT s FROM students2 s WHERE s.email = $1';
+// SELECT * FROM users WHERE email = 'test2@gmail.com';
 const addStudent =
     'INSERT INTO students2 (name, email, age, dob) VALUES ($1, $2, $3, $4)';
 const removeStudent = 'DELETE FROM students2 WHERE id = $1';

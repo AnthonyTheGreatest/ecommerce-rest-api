@@ -8,22 +8,32 @@ const getUserById = async (id) => {
   return await user.getUserById(id);
 };
 
-const addUser = async (name, email, age, dob) => {
-  return await user.addUser(name, email, age, dob);
+const addUser = async (password, user_name, email) => {
+  return await user.addUser(password, user_name, email);
 };
 
 const removeUser = async (id) => {
   return await user.removeUser(id);
 };
 
-const updateUser = async (name, id) => {
-  return await user.updateUser(name, id);
+const updateUser = async (user_name, id) => {
+  return await user.updateUser(user_name, id);
 };
+
+const idExists = async (id) => {
+  return await user.idExists(id);
+};
+
+const emailExists = async (email) => {
+  return await user.emailExists(email);
+}
 
 module.exports = {
   getUsers,
   getUserById,
   addUser,
   removeUser,
-  updateUser
+  updateUser,
+  idExists,
+  emailExists
 };
