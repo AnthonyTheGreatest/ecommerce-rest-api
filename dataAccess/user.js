@@ -45,7 +45,7 @@ const idExists = async (id) => {
     [id]
   );
   return rows.length ? true : false;
-}
+};
 
 const emailExists = async (email) => {
   const { rows } = await query(
@@ -53,7 +53,7 @@ const emailExists = async (email) => {
     [email]
   );
   return rows.length ? true : false;
-}
+};
 
 module.exports = {
     getUsers,

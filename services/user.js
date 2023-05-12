@@ -1,4 +1,4 @@
-const { user } = require('../dataAccess');
+const user = require('../dataAccess/user');
 
 const getUsers = async () => {
   return await user.getUsers();

@@ -1,14 +1,8 @@
 const express = require('express');
 const session = require('express-session');
-const cors = require('cors');
+// const cors = require('cors');
 require('dotenv').config();
-const {
-  authRouter,
-  cartRouter,
-  orderRouter,
-  productRouter,
-  userRouter
-} = require('./routes/index');
+const userRouter = require('./routes/user');
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -32,10 +26,10 @@ app.get('/', (req, res) => {
     res.send('Welcome to the home page.');
 });
 
-app.use('/auth', authRouter);
-app.use('/carts', cartRouter);
-app.use('/orders', orderRouter);
-app.use('/produsts', productRouter);
+// app.use('/auth', authRouter);
+// app.use('/carts', cartRouter);
+// app.use('/orders', orderRouter);
+// app.use('/produsts', productRouter);
 app.use('/users', userRouter);
 
 app.listen(port, () => {
