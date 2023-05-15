@@ -12,4 +12,6 @@ https://lucid.app/lucidchart/8d80cf5f-df43-4cfe-ae05-d3a8a4556f56/edit?viewport_
 https://www.youtube.com/watch?v=DihOP19LQdg&t=378s
 https://www.coreycleary.me/project-structure-for-an-express-rest-api-when-there-is-no-standard-way?fbclid=IwAR0fJAIpJun5Ty4o5ijl21Owf0zUBtWT_t04VqFV40c7W6bMQD1VkqOAKP0
 
+https://www.makeuseof.com/passport-authenticate-node-postgres/
 
+https://www.youtube.com/watch?v=vxu1RrR0vbw&t=1175s

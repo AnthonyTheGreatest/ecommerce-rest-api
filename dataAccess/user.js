@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs');
 const { query } = require('../db');
 
 const getUsers = async () => {
@@ -16,11 +17,14 @@ const getUserById = async (id) => {
 };
 
 const addUser = async (password, user_name, email) => {
+  // Hash password with salt:
+  const salt = bcrypt.getSalt(10);
+  const hash = await bcrypt.hash(password, salt);
   const { rows } = await query(
     'INSERT INTO users (password, user_name, email) VALUES ($1, $2, $3)',
-    [password, user_name, email]
+    [hash, user_name, email]
   );
-  return rows[0];
+  return rows.length ? rows[0] : false;
 };
 
 const removeUser = async (id) => {
@@ -52,7 +56,13 @@ const emailExists = async (email) => {
     'SELECT * FROM users WHERE email = $1',
     [email]
   );
-  return rows.length ? true : false;
+  return rows.length ? rows[0] : false;
+};
+
+// Helper:
+const matchPassword = async (password, hashPassword) => {
+  return await bcrypt.compare(password, hashPassword);
+  // Returns true or false.
 };
 
 module.exports = {
@@ -62,5 +72,6 @@ module.exports = {
     removeUser,
     updateUser,
     idExists,
-    emailExists
+    emailExists,
+    matchPassword
 };

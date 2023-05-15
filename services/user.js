@@ -26,6 +26,10 @@ const idExists = async (id) => {
 
 const emailExists = async (email) => {
   return await user.emailExists(email);
+};
+
+const matchPassword = async (password, hashPassword) => {
+  return await user.matchPassword(password, hashPassword);
 }
 
 module.exports = {
@@ -35,5 +39,6 @@ module.exports = {
   removeUser,
   updateUser,
   idExists,
-  emailExists
+  emailExists,
+  matchPassword
 };

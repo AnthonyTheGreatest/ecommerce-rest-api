@@ -1,4 +1,49 @@
+const LocalStrategy = require('passport-local');
 const user = require('../services/user');
+
+
+// Passport config:
+const config = (passport) => {
+  passport.use(
+      'local-signup',
+      new LocalStrategy(
+          {
+              usernameField: 'email',
+              passwordField: 'password'
+          },
+          async (email, password, done) => {
+              try {
+                  const userExists = await user.emailExists(email);
+                  if (userExists) return done(null, false);
+                  const user = await user.addUser(email, password /* user_name ? */);
+                  return done(null, user);
+              } catch (error) {
+                  done(error);
+              }
+          }
+      )
+  );
+  passport.use(
+      'local-login',
+      new LocalStrategy(
+          {
+              usernameField: 'email',
+              passwordFiled: 'password'
+          },
+          async (email, password, done) => {
+              try {
+                  const foundUser = await user.emailExists(email);
+                  if (!foundUser) return done(null, false);
+                  const isMatch = await user.matchPassword(password, foundUser.password);
+                  if (!isMatch) return done(null, false);
+                  return done(null, {id: foundUser.id, email: foundUser.email});
+              } catch (error) {
+                  return done(error, false);
+              }
+          }
+      )
+  );
+};
 
 const getUsers = async (req, res) => {
   try {
@@ -34,6 +79,14 @@ const addUser = async (req, res) => {
   }
 };
 
+// const signupUser = async (req, res) => {
+//   try {
+//     const { password, user_name, email } = req.body;
+//   } catch (error) {
+    
+//   }
+// };
+
 const removeUser = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
@@ -64,5 +117,6 @@ module.exports = {
     getUserById,
     addUser,
     removeUser,
-    updateUser
+    updateUser,
+    config
 };
