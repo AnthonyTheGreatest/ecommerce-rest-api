@@ -3,7 +3,6 @@ const session = require('express-session');
 const passport = require('passport');
 // const cors = require('cors');
 require('dotenv').config();
-const authRouter = require('./routes/auth');
 // const cartRouter = require('./routes/cart');
 // const orderRouter = require('./routes/order');
 // const productRouter = require('./routes/product');
@@ -31,7 +30,6 @@ app.get('/', (req, res) => {
     res.send('Welcome to the home page.');
 });
 
-app.use('/auth', authRouter);
 // app.use('/carts', cartRouter);
 // app.use('/orders', orderRouter);
 // app.use('/produsts', productRouter);
